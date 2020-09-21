@@ -1,0 +1,21 @@
+.key-label-group {
+    margin-left: 44px;
+    white-space: break-spaces;
+}
+
+.attachment {
+    margin-left: 52px;
+    margin-top: 24px;
+
+    label {
+        font-weight: 500;
+    }
+
+    iframe {
+        border: 1px solid #dbdddf;
+        border-radius: 8px;
+        height: 800px;
+        margin-top: 8px;
+        width: 100%;
+    }
+}

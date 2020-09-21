@@ -1,0 +1,88 @@
+<div class="title-bar">
+  <div class="close-button" (click)="goBack()"></div>
+  <h1>Create New Job Posting</h1>
+</div>
+
+<form #form="ngForm" (ngSubmit)="submitForm()" [class.submitted]="form.submitted">
+  <div class="input-group">
+    <label for="job-title-input">Job Title</label>
+
+    <input required type="text" name="job-title-input" id="job-title-input" placeholder="Enter job title"
+      #jobTitleInput="ngModel" [(ngModel)]="newJob.jobTitle">
+
+    <div *ngIf="isFormItemValid(form, jobTitleInput)" class="errors">
+      Please enter job title.
+    </div>
+  </div>
+
+  <div class="input-group">
+    <label for="job-location-input">Job Location</label>
+
+    <input required type="text" name="job-location-input" id="job-location-input" placeholder="Enter job location"
+      #jobLocationInput="ngModel" [(ngModel)]="newJob.jobLocation">
+
+    <div *ngIf="isFormItemValid(form, jobLocationInput)" class="errors">
+      Please enter job location.
+    </div>
+  </div>
+
+  <div class="input-group">
+    <label for="job-desc-textarea">Job Description</label>
+
+    <textarea required name="job-desc-textarea" id="job-desc-textarea" placeholder="Enter job description"
+      #jobDescTextarea="ngModel" [(ngModel)]="newJob.jobDesc"></textarea>
+
+    <div *ngIf="isFormItemValid(form, jobDescTextarea)" class="errors">
+      Please enter job description.
+    </div>
+  </div>
+
+  <div class="input-group">
+    <label for="date-input">Date</label>
+
+    <input required type="date" name="date-input" id="date-input" placeholder="Select date" #dateInput="ngModel"
+      [(ngModel)]="newJob.date">
+
+    <div *ngIf="isFormItemValid(form, dateInput)" class="errors">
+      Please select date.
+    </div>
+  </div>
+
+  <div class="input-group">
+    <label for="job-status-select">Job Status</label>
+
+    <select required name="job-status-select" id="job-status-select" #jobStatusSelect="ngModel"
+      [(ngModel)]="newJob.jobStatus">
+      <option value="O">Open</option>
+      <option value="C">Closed</option>
+    </select>
+
+    <div *ngIf="isFormItemValid(form, jobStatusSelect)" class="errors">
+      Please select job status.
+    </div>
+  </div>
+
+  <div class="input-group file">
+    <label for="job-status-select">Upload Extra Job Description (Optional)</label>
+
+    <div class="input">
+      <button type="button" tabindex="3" (click)="chooseFile()">Choose File...</button>
+      <span class="file-name">{{ extraJdFileName }}</span>
+      <input type="file" accept="application/pdf" name="extra-jd-upload" id="extra-jd-upload"
+        (change)="readFile($event)">
+    </div>
+  </div>
+
+  <div class="input-group checkbox">
+    <label for="add-another-checkbox">
+      <input type="checkbox" name="add-another-checkbox" id="add-another-checkbox" [(ngModel)]="newJob.addAnother">
+      Add another job after submission
+    </label>
+  </div>
+
+  <div class="button-container">
+    <button type="submit" tabindex="3" class="primary">
+      Submit Job Posting
+    </button>
+  </div>
+</form>

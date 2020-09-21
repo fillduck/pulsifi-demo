@@ -1,0 +1,31 @@
+.two-columns {
+    display: flex;
+    flex-grow: 1;
+    margin: -32px;
+
+    .left,
+    .right {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .left {
+        background-color: hsl(206, 3%, 97%);
+        flex: 1 1 auto;
+        padding: 32px;
+    }
+
+    .right {
+        background-color: hsl(206, 5%, 95%);
+        flex: 0 0 60%;
+        padding: 32px;
+    }
+}
+
+.jobs-list {
+    margin-top: 24px;
+}
+
+.card {
+    white-space: break-spaces;
+}

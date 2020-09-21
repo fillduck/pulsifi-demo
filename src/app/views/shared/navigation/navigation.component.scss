@@ -1,0 +1,33 @@
+.navigation {
+    left: 0;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+}
+
+header {
+    background-color: #fff;
+    display: grid;
+    height: 80px;
+    left: 0;
+    place-items: center;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+img {
+    height: 32px;
+}
+
+svg {
+    height: 56px;
+    padding: 16px;
+    position: fixed;
+    right: 16px;
+    top: 10px;
+
+    path {
+        fill:  hsl(206, 90%, 10%);
+    }
+}

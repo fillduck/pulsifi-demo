@@ -1,0 +1,36 @@
+<div class="title-bar">
+  <div class="close-button" (click)="goBack()"></div>
+  <h1>Job Details</h1>
+</div>
+
+<div class="key-label-group">
+  <div class="key-label-pair">
+    <span class="key">Job Title</span>
+    <span class="label">{{ jobDetails.jobTitle }}</span>
+  </div>
+
+  <div class="key-label-pair">
+    <span class="key">Job Location</span>
+    <span class="label">{{ jobDetails.jobLocation }}</span>
+  </div>
+
+  <div class="key-label-pair">
+    <span class="key">Job Description</span>
+    <span class="label">{{ jobDetails.jobDesc }}</span>
+  </div>
+
+  <div class="key-label-pair">
+    <span class="key">Date</span>
+    <span class="label">{{ jobDetails.date | date: 'dd MMM yyyy' }}</span>
+  </div>
+
+  <div class="key-label-pair">
+    <span class="key">Job Status</span>
+    <span class="label">{{ jobDetails.jobStatus }}</span>
+  </div>
+</div>
+
+<div *ngIf="fileUrl" class="attachment">
+  <label>Extra Job Description</label>
+  <iframe [src]="fileUrl"></iframe>
+</div>

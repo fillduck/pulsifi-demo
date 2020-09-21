@@ -1,0 +1,40 @@
+<div class="two-columns">
+  <div class="left">
+    <div class="title-bar">
+      <h1 (click)="refreshListing()">Jobs Listing</h1>
+
+      <a *ngIf="userType === 'R'" (click)="createNewJob()">
+        Post New Job
+      </a>
+    </div>
+
+    <div *ngIf="!jobsList" class="progress-bar-container">
+      <span class="progress-bar">
+        <span class="filled"></span>
+      </span>
+    </div>
+
+    <div class="jobs-list">
+      <div *ngFor="let j of jobsList" class="card" [class.active]="activeJob === j.id" (click)="viewJobDetails(j.id)">
+        <span class="primary">{{ j.jobTitle }}</span>
+        <span class="secondary">{{ j.jobLocation }}</span>
+
+        <label>Job Description</label>
+        <span class="secondary">{{ getTruncatedJobDesc(j.jobDesc) }}</span>
+      </div>
+    </div>
+    <!-- </div> -->
+  </div>
+
+  <div class="right">
+    <app-job-details *ngIf="jobDetails" [jobDetails]="jobDetails" (closePanels)="closePanels()"></app-job-details>
+    <app-create-job *ngIf="createJob" (postNewJob)="postNewJob($event)" (closePanels)="closePanels()">
+    </app-create-job>
+
+    <div *ngIf="loadingDetails" class="progress-bar-container">
+      <span class="progress-bar">
+        <span class="filled"></span>
+      </span>
+    </div>
+  </div>
+</div>

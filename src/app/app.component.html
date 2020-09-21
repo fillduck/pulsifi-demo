@@ -1,0 +1,11 @@
+<ng-container *ngIf="init; else loadingTemplate">
+  <router-outlet></router-outlet>
+</ng-container>
+
+<ng-template #loadingTemplate>
+  <div class="container">
+    <span class="progress-bar">
+      <span class="filled"></span>
+    </span>
+  </div>
+</ng-template>
